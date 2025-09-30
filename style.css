@@ -1,0 +1,106 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: hsl(217, 54%, 11%);
+  color: hsl(215, 51%, 70%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  flex-direction: column;
+}
+
+/* Card */
+.card {
+  background-color: hsl(216, 50%, 16%);
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 350px;
+  width: 100%;
+  box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+/* Hover no card */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 40px rgba(0,0,0,0.3);
+}
+
+/* Imagem */
+.card-img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.card-img:hover {
+  filter: brightness(0.8);
+}
+
+/* Título e texto */
+.card-title {
+  font-size: 22px;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.card-desc {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+/* Informações */
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.price {
+  color: hsl(178, 100%, 50%);
+}
+
+.time {
+  color: hsl(215, 51%, 70%);
+}
+
+/* Criador */
+.card-creator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid hsl(215, 32%, 27%);
+  padding-top: 15px;
+}
+
+.avatar {
+  width: 30px;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+
+.card-creator span {
+  color: white;
+}
+
+/* Attribution */
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
