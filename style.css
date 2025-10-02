@@ -24,7 +24,53 @@ body {
   padding: 20px;
   max-width: 350px;
   width: 100%;
-  box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+  box-shadow: 0 20px 30px rgba(0,0,0,0.2);/* Container da imagem (necessário para overlay) */
+.card-img-container {
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.card-img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* Overlay */
+.card-img-container::after {
+  content: url("./images/icon-view.svg"); /* ícone do olho */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-img-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: hsl(178, 100%, 50%, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Hover: mostra overlay e ícone */
+.card-img-container:hover::before,
+.card-img-container:hover::after {
+  opacity: 1;
+}
+
+.card-img-container:hover .card-img {
+  transform: scale(1.05);
+}
+
   transition: transform 0.3s ease;
 }
 
