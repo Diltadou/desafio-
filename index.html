@@ -1,38 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsivo -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFTS aleatorios</title>
+    <nav class="main-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <!-- Custom SVG Logo -->
+                <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#f10a0a;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#04c042;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Crown shape -->
+                    <path d="M50 20 L30 45 L20 35 L20 70 L80 70 L80 35 L70 45 L50 20 Z" fill="url(#logoGradient)" stroke="white" stroke-width="2"/>
+                    <!-- Gems on crown -->
+                    <circle cx="50" cy="30" r="5" fill="#FF1493"/>
+                    <circle cx="35" cy="42" r="4" fill="#00CED1"/>
+                    <circle cx="65" cy="42" r="4" fill="#00CED1"/>
+                    <!-- Base decoration -->
+                    <rect x="20" y="65" width="60" height="5" fill="white" opacity="0.3"/>
+                </svg>
+                <span class="logo-text">NFT aleatorios</span>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#">Galeria</a></li>
+                <li><a href="#">Sobre</a></li>
+            </ul>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="style.css">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
 
-  <title>Frontend Mentor | NFT preview card component</title>
-</head>
-<body>
-  <main class="card">
-    <!-- Container para efeito de hover -->
-    <div class="card-img-container">
-      <img src="./images/image-equilibrium.jpg" alt="Equilibrium NFT" class="card-img">
-    </div>
+    <header class="hero">
+        <h1>Loja DE NFTS</h1>
+        <p class="subtitle">descubra os nfts ai </p>
+    </header>
 
-    <h1 class="card-title">Equilibrium #3429</h1>
-    <p class="card-desc">Our Equilibrium collection promotes balance and calm.</p>
+    <main class="card-container" id="cardContainer">
+    </main>
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sobre NFTS </h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Receba as últimas novidades e lançamentos exclusivos de NFTs boas ai</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input 
+                            type="email" 
+                            class="newsletter-input" 
+                            placeholder="Seu e-mail" 
+                            required
+                            aria-label="Email para newsletter"
+                        >
+                        <button type="submit" class="newsletter-btn">Inscrever</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">© 2025 NFT Royale. Todos os direitos reservados.</p>
+                <ul class="footer-bottom-links">
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 
-    <div class="card-info">
-      <span class="price">0.041 ETH</span>
-      <span class="time">3 days left</span>
-    </div>
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
 
-    <div class="card-creator">
-      <img src="./images/image-avatar.png" alt="Avatar" class="avatar">
-      <p>Creation of <span>Jules Wyvern</span></p>
-    </div>
-  </main>
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
 
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Seu Nome</a>.
-  </div>
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.main-header')) {
+                mobileMenuBtn.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+        const nftData = [
+            {
+                title: "Mundo Gamer",
+                description: "Todos os homens ai.",
+                image: "mundo gamer.jpg",
+                edition: "1 of 100",
+                creator: "ArtistX",
+                mintDate: "Jan 15, 2024"
+            },
+            {
+                title: "Terrario",
+                description: "O lendário Terraria do bons .",
+                image: "terraria do bons.jpg",
+                edition: "5 of 50",
+                creator: "PvRlk",
+                mintDate: "Feb 3, 2024"
+            },
+            {
+                title: "Super dos Marios",
+                description: "Um lendario chapeludo vermelho .",
+                image: "https://i.imgur.com/l8lJojV.png",
+                edition: "2 of 25",
+                creator: "CyberArt",
+                mintDate: "Mar 10, 2024"
+            },
+            {
+                title: "castevania",
+                description: "Apenas o jogo.",
+                image: "castlevania.png",
+                mintDate: "Jan 28, 2024"
+            },
+            {
+                title: "Devil dos marcks",
+                description: "Apenas o jogo bom slk.",
+                image: "devil.png",
+                creator: "GeoArtist",
+                mintDate: "Feb 14, 2024"
+            },
+        ];
+        function createCard(nft) {
+            const cardWrapper = document.createElement('article');
+            cardWrapper.className = 'card-wrapper';
+            cardWrapper.setAttribute('role', 'article');
+            cardWrapper.setAttribute('aria-label', `NFT: ${nft.title}`);
+
+            cardWrapper.innerHTML = `
+                <div class="nft-card">
+                    <div class="card-face card-front">
+                        <img src="${nft.image}" alt="${nft.title}" class="card-image" loading="lazy">
+                        <div class="card-content">
+                            <h2 class="card-title">${nft.title}</h2>
+                            <p class="card-description">${nft.description}</p>
+                            <div class="card-footer">
+                                <span class="price">${nft.price}</span>
+                                <span class="edition">${nft.edition}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-face card-back">
+                        <h3 class="back-title">NFT Details</h3>
+                        <div class="detail-item">
+                            <div class="detail-label">Creator</div>
+                            <div class="detail-value">${nft.creator}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Blockchain</div>
+                            <div class="detail-value">${nft.blockchain}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Mint Date</div>
+                            <div class="detail-value">${nft.mintDate}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Rarity</div>
+                            <div class="detail-value">
+                                ${nft.rarity}
+                                <span class="badge">${nft.rarity}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            return cardWrapper;
+        }
+        function renderCards() {
+            const container = document.getElementById('cardContainer');
+            nftData.forEach(nft => {
+                const card = createCard(nft);
+                container.appendChild(card);
+            });
+        }
+        document.addEventListener('DOMContentLoaded', renderCards);
+        if ('ontouchstart' in window) {
+            document.addEventListener('DOMContentLoaded', () => {
+                const cards = document.querySelectorAll('.card-wrapper');
+                cards.forEach(card => {
+                    let isFlipped = false;
+                    card.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const nftCard = card.querySelector('.nft-card');
+                        if (isFlipped) {
+                            nftCard.style.transform = 'rotateY(0deg)';
+                        } else {
+                            nftCard.style.transform = 'rotateY(180deg)';
+                        }
+                        isFlipped = !isFlipped;
+                    });
+                });
+            });
+        }
+    </script>
 </body>
 </html>
